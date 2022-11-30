@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>express-basic-test</title>
+  {{!-- link css file here --}}
+  <link rel="stylesheet" href="/stylesheets/stylesheets.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+</head>
+
+<body>
+  {{!-- navigation --}}
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="nav-item navbar-homepage" href="/" id="homepage">回到首頁</a>
+      <div>
+        <a class="nav-item navbar-about" href="About" id="about">About</a>
+        <a class="nav-item navbar-profoilo" href="Profoilo" id="profoilo">Profoilo</a>
+        <a class="nav-item navbar-contact" href="Contact" id="contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+  {{!-- partial template will replace the body here --}}
+  {{{body}}}
+
+  <script src="/javascripts/popper.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+</body>
+
+</html>

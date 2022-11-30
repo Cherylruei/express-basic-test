@@ -1,0 +1,26 @@
+.nav-item {
+  width: 8rem;
+  height: auto;
+  background-color: silver;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: black;
+  margin: 1rem 0.5rem;
+  padding: 0.8rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+a {
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+}
+
+.nav-item:hover {
+  background-color: rgb(62, 59, 59);
+  color: white;
+}
