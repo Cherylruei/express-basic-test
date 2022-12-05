@@ -6,7 +6,23 @@ const port = 3000;
 const exphbs = require('express-handlebars')
 
 //setting template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  helpers: {
+    switchChecked: function () {
+      const navPage = document.querySelector('.nav-page')
+      const navItem = document.querySelectorAll('.nav-item')
+      for (let i = 0; i < navItem.length; i++) {
+        navPage.addEventListener('click', function (event) {
+          const target = event.target
+          if (target.id.toString() === navItem[i].id.toString()) {
+            target.classList.toggle('checked')
+          }
+        })
+      }
+    }
+  }
+}))
 //let express know the view engine setting is handlebars
 app.set('view engine', 'handlebars')
 
