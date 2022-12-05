@@ -5,13 +5,10 @@ const port = 3000;
 //require express handlebars here
 const exphbs = require('express-handlebars')
 
-//setting template engine
-app.engine('handlebars', exphbs({
+const hbs = exphbs.create({
   defaultLayout: 'main',
   helpers: {
-    switchChecked: function () {
-      const navPage = document.querySelector('.nav-page')
-      const navItem = document.querySelectorAll('.nav-item')
+    switchChecked: function (navItem, navPage) {
       for (let i = 0; i < navItem.length; i++) {
         navPage.addEventListener('click', function (event) {
           const target = event.target
@@ -22,7 +19,9 @@ app.engine('handlebars', exphbs({
       }
     }
   }
-}))
+})
+//setting template engine
+app.engine('handlebars', hbs.engine)
 //let express know the view engine setting is handlebars
 app.set('view engine', 'handlebars')
 
@@ -34,6 +33,8 @@ app.get('/', (req, res) => {
   const page = {
     title: '首頁'
   }
+  const navPage = document.querySelector('.nav-page')
+  const navItem = document.querySelectorAll('.nav-item')
   res.render('index', { page: page })
 })
 
